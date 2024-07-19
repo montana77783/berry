@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: ${{startsWith(github.ref, 'refs/pull/')}}
 
 env:
-  node-version: '18.x'
+  node-version: '19.x'
 
 name: 'Integration'
 jobs:
@@ -203,7 +203,6 @@ jobs:
 
   acceptance:
     strategy:
-      fail-fast: false
       matrix:
         # We run the ubuntu tests on multiple Node versions with 2 shards since they're the fastest.
         node: [18, 19, 20, 21]
@@ -260,7 +259,8 @@ jobs:
 
   big-endian:
     strategy:
-      fail-fast: false
+
+
       matrix:
         shard: ['1/4', '2/4', '3/4', '4/4']
 
